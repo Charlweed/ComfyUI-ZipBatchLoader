@@ -3,16 +3,15 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "comfyui-zip-batch-loader"
-description = "A ComfyUI custom node to load a batch of images from a ZIP archive."
+name = "ComfyUI-ZipBatchLoader"
+description = "A ComfyUI custom node to load images from a ZIP archive as modern batched IMAGE and MASK objects."
 # Version must have exactly three fields, with period as delimiter.
-version = "0.2.2"
-license = { text = "MIT" }
+version = "0.2.3"
+license = { file = "LICENSE" }
 
 readme = "README.md"
-authors = [
-    { name = "Author" }
-]
+authors = [{ name = "Charlweed" }]
+keywords = ["comfyui", "zip", "batch", "image-loader"]
 
 requires-python = ">=3.8"
 dependencies = [
@@ -22,10 +21,10 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/Charlweed/ComfyUI-ZipBatchLoader.git"
+Repository = "https://github.com/Charlweed/ComfyUI-ZipBatchLoader"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
 PublisherId = "charlweed"
-DisplayName = "ZipBatchLoader"
+DisplayName = "ComfyUI-ZipBatchLoader"
 Icon = "https://raw.githubusercontent.com/Charlweed/ComfyUI-ZipBatchLoader/main/assets/zip_icon_flatui.png"
