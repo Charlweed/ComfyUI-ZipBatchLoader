@@ -47,7 +47,6 @@ local ComfyUI project is at `file:../../../3rd_party/ComfyUI`
 
 ## 5. Integration Context
 
-This node directly replaces the hallucinated capability of `ComfyUI-TinyBee`. It will serve as the root input node in
-the `geomancy_battlemap_sd15_v3_gui.json` workflow, receiving the `geomancy_bundle_{timestamp}.zip` and feeding the
-batched output to downstream node(s) that will unbatch or select specific indices for the `000_blueprint` and `010_`
-through `050_` masks.
+This node will serve as the root input node in the `geomancy_battlemap_sd15_v3_gui.json` workflow, receiving the 
+`geomancy_bundle_{timestamp}.zip` and feeding the batched output to downstream node(s) that will unbatch or select
+specific indices for the `000_blueprint` and `010_` through `050_` masks.
