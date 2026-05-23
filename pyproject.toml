@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui-zip-batch-loader"
+version = "0.1.0"
+description = "A ComfyUI custom node to load a batch of images from a ZIP archive."
+readme = "README.md"
+authors = [
+    { name = "Author" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = [
+    "torch",
+    "Pillow",
+    "numpy"
+]
+

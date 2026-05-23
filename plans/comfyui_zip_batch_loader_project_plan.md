@@ -1,16 +1,22 @@
 # Project Plan: ComfyUI ZIP Batch Loader Custom Node
 
 ## 1. Objective
-Create a new, standalone Git repository for a ComfyUI custom node that implements the "Load Image Batch from Zip" requirements. This ensures the node is modular, version-controlled, and easily installable via the ComfyUI Manager or direct `git clone`.
+
+Create a new, standalone Git repository for a ComfyUI custom node that implements the "Load Image Batch from Zip"
+requirements. This ensures the node is modular, version-controlled, and easily installable via the ComfyUI Manager or
+direct `git clone`.
 
 ## 2. Project Setup
 
 ### 2.1. Repository Details
+
 - **Project Name**: `zip_batch_loader`
-- **Location**: A directory independent of the main `charlweeds-geomancy` project workspace. For local development, `L:\projects\hymerfania\comfyui_custom_nodes\zip_batch_loader` has been created.
+- **Location**: A directory independent of the main `charlweeds-geomancy` project workspace. For local development,
+  `L:\projects\hymerfania\comfyui_custom_nodes\zip_batch_loader` has been created.
 - **Primary Language**: Python 3.8+ (aligning with ComfyUI's standard interpreter requirements).
 
 ### 2.2. Directory Structure
+
 ```text
 zip_batch_loader/
 ├── .gitignore
@@ -25,14 +31,16 @@ zip_batch_loader/
 
 ## 3. Implementation Phases
 
-### Preparation: 
+### Preparation:
+
 Download a copy of the MIT LICENSE file into the project root.
 Create an idiomatic README.md in the project root.
 Create an idiomatic pyproject.toml file in the project root.
 
 ### Phase 1: Core Node Logic (`zip_batch_loader.py`)
+
 - **Class Definition**: Implement the `ZipBatchLoader` class.
-- **`INPUT_TYPES`**: 
+- **`INPUT_TYPES`**:
     - Query the ComfyUI `folder_paths.get_input_directory()` for `.zip` files to populate a dropdown widget.
 - **`RETURN_TYPES`**: `("IMAGE", "MASK", "INT")`
 - **`RETURN_NAMES`**: `("image", "mask", "count")`
@@ -50,6 +58,7 @@ Create an idiomatic pyproject.toml file in the project root.
         10. Return the batched `IMAGE` tensor, `MASK` tensor, and the total count.
 
 ### Phase 2: ComfyUI Registration (`__init__.py`)
+
 - Import the `ZipBatchLoader` class from `zip_batch_loader.py`.
 - Define the node mappings required by ComfyUI:
   ```python
@@ -63,16 +72,19 @@ Create an idiomatic pyproject.toml file in the project root.
   ```
 
 ### Phase 3: Testing & Validation
+
 - **Unit tests**: Create and tun unit tests
 - **Deployment**: Symlink or clone the repository into a local ComfyUI instance's `custom_nodes/` directory.
 - **Basic Load**: Start ComfyUI and verify the node appears in the node browser without import errors.
-- **Execution Test**: 
+- **Execution Test**:
     - Place a mock `geomancy_bundle_test.zip` in the ComfyUI `input` folder.
     - Create a test workflow with the new node.
-    - Connect the node to a built-in `PreviewImage` or similar debug node (using a batch selector to extract specific frames).
+    - Connect the node to a built-in `PreviewImage` or similar debug node (using a batch selector to extract specific
+      frames).
     - Verify the output order exactly matches the alphabetical sort of the internal filenames.
 
 ### Phase 4: Release & Documentation
+
 - Document the installation process in `README.md`.
 - Detail the input/output tensor shapes and the strict dimension requirement.
 - Commit all changes and push to a remote git repository (e.g., GitHub) to allow seamless installation.

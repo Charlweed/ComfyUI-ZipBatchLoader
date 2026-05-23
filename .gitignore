@@ -3,95 +3,41 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C extensions
+*.so
+
 # Distribution / packaging
-.eggs/
-.installed.cfg
 .Python
-*.egg
-*.egg-info/
 build/
 develop-eggs/
 dist/
 downloads/
 eggs/
+.eggs/
 lib/
 lib64/
-MANIFEST
 parts/
-pip-wheel-metadata/
 sdist/
-share/python-wheels/
 var/
 wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Environments
+# Virtual environments
 .env
 .venv
-.venv_native_312/
-env.bak/
 env/
-ENV/
-venv.bak/
 venv/
+ENV/
+env.bak/
+venv.bak/
 
-# IDEs
+# IDEs and Editors
 .idea/
-.vs/
 .vscode/
-*.swo
 *.swp
+*.swo
 *~
-
-
-# OS
-.DS_Store
-Thumbs.db
-
-# pipenv
-Pipfile.lock
-
-# PEP 582
-__pypackages__/
-
-# Private
-*.private
-*.log
-.private/
-private/
-
-# Project Outputs & Workflows
-blueprints/
-output/
-tests/output/
-
-# PyBuilder
-target/
-
-# pyenv
-.python-version
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Unit test / coverage reports
-.cache
-.coverage
-.coverage.*
-.hypothesis/
-.nox/
-.pytest_cache/
-.tox/
-*.cover
-*.py,cover
-coverage.xml
-htmlcov/
-nosetests.xml
-
-# AI config
-.agent/
-.codex/
-.continue/
-.gemini/
-.gemini/policies/command_approvals.toml
-GEMINI.md
