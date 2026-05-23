@@ -1,5 +1,7 @@
 # ComfyUI ZIP Batch Loader
 
+[![Comfy Registry](https://img.shields.io/badge/Comfy%20Registry-ZipBatchLoader-blue)](https://registry.comfy.org/publishers/charlweed/nodes/zipbatchloader)
+
 A custom ComfyUI node that loads a batch of images directly from a ZIP archive. This node reads the archive in-memory,
 sorts the images alphabetically by filename, and outputs them as batched `IMAGE` and `MASK` tensors, maintaining a
 predictable order.
@@ -13,6 +15,21 @@ predictable order.
 - **Dimension Validation:** Configurable behavior for handling images of varying sizes within the same archive.
 
 ## Installation
+
+### Via Comfy CLI (Recommended)
+
+If you have the [Comfy CLI](https://github.com/comfyanonymous/comfy-cli) installed, you can install this node by running:
+
+```bash
+comfy node install comfyui-zip-batch-loader
+```
+
+### Via ComfyUI Manager
+
+1. Open the **Manager** in ComfyUI.
+2. Click on **Custom Nodes Manager**.
+3. Search for `ZipBatchLoader` or `comfyui-zip-batch-loader`.
+4. Click **Install**.
 
 ### Manual Installation
 
