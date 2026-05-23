@@ -28,4 +28,4 @@ Repository = "https://github.com/Charlweed/ComfyUI-ZipBatchLoader.git"
 [tool.comfy]
 PublisherId = "charlweed"
 DisplayName = "ZipBatchLoader"
-Icon = "https://github.com/Charlweed/ComfyUI-ZipBatchLoader/blob/10adcb8f198872e0257d9ecb5f4667bffbbf18f9/assets/zip_icon_flatui.png"
+Icon = "https://raw.githubusercontent.com/Charlweed/ComfyUI-ZipBatchLoader/main/assets/zip_icon_flatui.png"
