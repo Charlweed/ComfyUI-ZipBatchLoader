@@ -22,6 +22,11 @@ from zip_batch_loader import ZipBatchLoader  # noqa: E402 # pylint: disable=wron
 class TestZipBatchLoader(unittest.TestCase):
     """Test suite for the ZipBatchLoader class."""
 
+    test_dir: str
+    zip_path: str
+    hetero_zip_path: str
+    mock_folder_paths: MagicMock
+
     def setUp(self):
         """Sets up the test environment by creating temporary zip files."""
         self.test_dir = os.path.dirname(__file__)
