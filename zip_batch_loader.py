@@ -14,6 +14,7 @@ from PIL import Image
 import folder_paths  # pylint: disable=import-error
 
 
+# noinspection PyPep8Naming
 class ZipBatchLoader:
     """
     A custom node to load a batch of images directly from a ZIP archive.
@@ -79,7 +80,7 @@ class ZipBatchLoader:
 
             return rgb_tensor, mask_tensor, first_dims
 
-    def load_from_zip(self, zip_file, heterogeneous_dimensions):
+    def load_from_zip(self, zip_file: str, heterogeneous_dimensions: bool):
         """Loads images from the given zip file and returns batched tensors."""
         zip_path = os.path.join(folder_paths.get_input_directory(), zip_file)
 
@@ -119,4 +120,4 @@ class ZipBatchLoader:
         batched_images = torch.stack(images)
         batched_masks = torch.stack(masks)
 
-        return (batched_images, batched_masks, len(images))
+        return batched_images, batched_masks, len(images)
