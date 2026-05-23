@@ -1,0 +1,14 @@
+# ComfyUI-Manager & Registry Ignore List
+.git/
+.idea/
+.gemini/
+.ruff_cache/
+__pycache__/
+*.pyc
+
+# Development & Documentation
+tests/
+plans/
+docs/
+.gitignore
+.geminiignore

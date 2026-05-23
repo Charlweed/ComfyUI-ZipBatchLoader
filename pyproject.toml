@@ -4,13 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "comfyui-zip-batch-loader"
-version = "0.1.0"
 description = "A ComfyUI custom node to load a batch of images from a ZIP archive."
+# Version must have exactly three fields, with period as delimiter.
+version = "0.2.0"
+license = { text = "MIT" }
+
 readme = "README.md"
 authors = [
     { name = "Author" }
 ]
-license = { text = "MIT" }
+
 requires-python = ">=3.8"
 dependencies = [
     "torch",
@@ -18,3 +21,11 @@ dependencies = [
     "numpy"
 ]
 
+[project.urls]
+Repository = "https://github.com/Charlweed/ComfyUI-ZipBatchLoader.git"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "charlweed"
+DisplayName = "ZipBatchLoader"
+# Icon = "https://github.com/Charlweed/ComfyUI-ZipBatchLoader.git/blob/<hex_string>/assets/zip_icon_uxwing.png"
