@@ -1,0 +1,35 @@
+# Security & Privacy
+.env
+.env.*
+*.private
+.log
+private/
+
+# System & Tooling
+.git/
+.agent/
+.codex/
+.cursorrules
+.goosehints
+AGENT_RULES.md
+
+# Python
+__pycache__/
+.coverage
+.pytest_cache/
+.ruff_cache/
+.venv_native_312/
+.venv/
+*.py[cod]
+*$py.class
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project specific
+node_modules/
+build/
+dist/
