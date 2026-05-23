@@ -5,8 +5,8 @@
 A custom ComfyUI node designed to read a ZIP archive containing multiple images, sort them predictably, and output them
 as batched `IMAGE` and `MASK` tensors. This node is critical for the Charlweed's Geomancy pipeline to ingest a single
 bundled artifact containing the blueprint and semantic class masks. The "Charlweed's Geomancy" project is local at
-`file:../../../hymerfania/charlweeds-geomancy`, but this project does not have any dependencies on that project. The
-local ComfyUI project is at `file:../../ComfyUI`
+`file:../../charlweeds-geomancy`, but this project does not have any dependencies on that project. The
+local ComfyUI project is at `file:../../../3rd_party/ComfyUI`
 
 ## 2. Core Functionality
 
