@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "comfyui-zip-batch-loader"
 description = "A ComfyUI custom node to load a batch of images from a ZIP archive."
 # Version must have exactly three fields, with period as delimiter.
-version = "0.2.0"
+version = "0.2.1"
 license = { text = "MIT" }
 
 readme = "README.md"
