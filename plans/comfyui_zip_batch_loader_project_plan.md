@@ -7,7 +7,7 @@ Create a new, standalone Git repository for a ComfyUI custom node that implement
 
 ### 2.1. Repository Details
 - **Project Name**: `zip_batch_loader`
-- **Location**: A new directory independent of the main `charlweeds-geomancy` project workspace. For local development, `L:\projects\hymerfania\comfyui_custom_nodes\zip_batch_loader` is recommended.
+- **Location**: A directory independent of the main `charlweeds-geomancy` project workspace. For local development, `L:\projects\hymerfania\comfyui_custom_nodes\zip_batch_loader` has been created.
 - **Primary Language**: Python 3.8+ (aligning with ComfyUI's standard interpreter requirements).
 
 ### 2.2. Directory Structure
@@ -17,11 +17,18 @@ zip_batch_loader/
 ├── LICENSE              # MIT License recommended for ComfyUI nodes
 ├── README.md            # Installation instructions and examples
 ├── __init__.py          # Node registration
-├── zip_batch_loader.py  # Core node logic
-└── requirements.txt     # (Optional) minimal dependencies
+├── pyproject.toml       # minimal dependencies
+├── requirements.txt     # minimal dependencies
+├── tests                # unit and other tests
+└── zip_batch_loader.py  # Core node logic
 ```
 
 ## 3. Implementation Phases
+
+### Preparation: 
+Download a copy of the MIT LICENSE file into the project root.
+Create an idiomatic README.md in the project root.
+Create an idiomatic pyproject.toml file in the project root.
 
 ### Phase 1: Core Node Logic (`zip_batch_loader.py`)
 - **Class Definition**: Implement the `ZipBatchLoader` class.
@@ -56,6 +63,7 @@ zip_batch_loader/
   ```
 
 ### Phase 3: Testing & Validation
+- **Unit tests**: Create and tun unit tests
 - **Deployment**: Symlink or clone the repository into a local ComfyUI instance's `custom_nodes/` directory.
 - **Basic Load**: Start ComfyUI and verify the node appears in the node browser without import errors.
 - **Execution Test**: 
