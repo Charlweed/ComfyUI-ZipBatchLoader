@@ -17,12 +17,33 @@ import folder_paths  # pylint: disable=import-error
 # noinspection PyPep8Naming
 class ZipBatchLoader:
     """
-    A custom node to load a batch of images directly from a ZIP archive.
+    A custom ComfyUI node that loads a batch of images and masks from a ZIP archive.
+
+    This node reads a ZIP file from the ComfyUI input directory, extracts image files,
+    sorts them alphabetically, and stacks them into batched tensors. It is designed
+    to handle standardized datasets (like Geomancy bundles) efficiently in-memory.
+
+    Attributes:
+        RETURN_TYPES (tuple): The types of data returned by the node (IMAGE, MASK, INT).
+        RETURN_NAMES (tuple): The names of the returned outputs (image, mask, count).
+        FUNCTION (str): The name of the entry point method (load_from_zip).
+        CATEGORY (str): The category under which the node appears in ComfyUI.
     """
 
     @classmethod
     def INPUT_TYPES(cls):  # pylint: disable=invalid-name
-        """Defines the input types for the ComfyUI node."""
+        """
+        Defines the input parameters for the node.
+
+        Queries the ComfyUI input directory for available ZIP files to populate
+        the dropdown menu.
+
+        Returns:
+            dict: A dictionary defining the required and optional inputs.
+                - zip_file: A dropdown list of .zip files in the input folder.
+                - heterogeneous_dimensions: A boolean toggle. If True, allows images
+                  of different sizes to be skipped instead of raising an error.
+        """
         files = []
         try:
             input_dir = folder_paths.get_input_directory()
@@ -47,7 +68,28 @@ class ZipBatchLoader:
     CATEGORY = "image"
 
     def _process_image_file(self, archive, filename, first_dims, heterogeneous_dims):
-        """Helper to process a single image from the archive."""
+        """
+        Extracts and processes a single image file from the ZIP archive.
+
+        This helper method reads the image data into memory, validates its dimensions
+        against the first image in the batch, and converts it into PyTorch tensors.
+
+        Args:
+            archive (zipfile.ZipFile): The open ZIP archive object.
+            filename (str): The internal path/name of the file to process.
+            first_dims (tuple, optional): The (width, height) of the first image
+                processed in this batch. Used for dimension validation.
+            heterogeneous_dims (bool): If True, skips images with mismatched dimensions.
+
+        Returns:
+            tuple: A tuple containing:
+                - rgb_tensor (torch.Tensor or None): Normalized RGB image tensor [H, W, 3].
+                - mask_tensor (torch.Tensor or None): Normalized mask tensor [H, W].
+                - first_dims (tuple): The updated or original reference dimensions.
+
+        Raises:
+            ValueError: If heterogeneous_dims is False and a dimension mismatch is found.
+        """
         with archive.open(filename) as file_obj:
             try:
                 img = Image.open(io.BytesIO(file_obj.read()))
@@ -81,7 +123,27 @@ class ZipBatchLoader:
             return rgb_tensor, mask_tensor, first_dims
 
     def load_from_zip(self, zip_file: str, heterogeneous_dimensions: bool):
-        """Loads images from the given zip file and returns batched tensors."""
+        """
+        The main entry point for the node. Loads and batches images from the ZIP.
+
+        Args:
+            zip_file (str): The filename of the ZIP archive located in the
+                ComfyUI input directory.
+            heterogeneous_dimensions (bool): If True, the node will skip images
+                that do not match the dimensions of the first valid image found
+                in the archive. If False, any mismatch will raise a ValueError.
+
+        Returns:
+            tuple: A tuple containing:
+                - IMAGE (torch.Tensor): A batched tensor of shape [B, H, W, 3].
+                - MASK (torch.Tensor): A batched tensor of shape [B, H, W].
+                - COUNT (int): The number of images successfully loaded.
+
+        Raises:
+            FileNotFoundError: If the specified ZIP file does not exist.
+            ValueError: If no valid images are found or if processing fails due
+                to dimension mismatches (when heterogeneous_dimensions is False).
+        """
         zip_path = os.path.join(folder_paths.get_input_directory(), zip_file)
 
         if not os.path.exists(zip_path):
