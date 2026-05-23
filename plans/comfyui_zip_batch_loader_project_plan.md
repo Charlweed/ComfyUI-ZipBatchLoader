@@ -12,7 +12,7 @@ direct `git clone`.
 
 - **Project Name**: `zip_batch_loader`
 - **Location**: A directory independent of the main `charlweeds-geomancy` project workspace. For local development,
-  `L:\projects\hymerfania\comfyui_custom_nodes\zip_batch_loader` has been created.
+  `https://github.com/Charlweed/ComfyUI-ZipBatchLoader.git` has been created.
 - **Primary Language**: Python 3.8+ (aligning with ComfyUI's standard interpreter requirements).
 
 ### 2.2. Directory Structure

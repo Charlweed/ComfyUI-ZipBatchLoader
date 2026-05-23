@@ -19,7 +19,7 @@ predictable order.
 1. Navigate to your ComfyUI `custom_nodes` directory.
 2. Clone this repository:
    ```bash
-   git clone <repository_url> zip_batch_loader
+   git clone https://github.com/Charlweed/ComfyUI-ZipBatchLoader.git zip_batch_loader
    ```
 3. Restart ComfyUI.
 

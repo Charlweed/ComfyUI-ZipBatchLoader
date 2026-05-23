@@ -43,6 +43,9 @@ venv/
 *~
 
 
+# GitHub
+.github/
+
 # OS
 .DS_Store
 Thumbs.db
@@ -87,6 +90,7 @@ target/
 coverage.xml
 htmlcov/
 nosetests.xml
+*.zip
 
 # AI config
 .agent/
@@ -95,3 +99,5 @@ nosetests.xml
 .gemini/
 .gemini/policies/command_approvals.toml
 GEMINI.md
+
+gha-creds-*.json
